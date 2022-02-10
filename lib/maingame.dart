@@ -157,8 +157,6 @@ class _MainGameState extends State<MainGame> {
         showXO[0] == showXO[1] && showXO[0] == showXO[2] && showXO[0] != '') {
       _winText(showXO[0]);
       win = true;
-    } else if (boxCount == 9 && win) {
-      _drawText();
     }
 
     if (
@@ -166,8 +164,6 @@ class _MainGameState extends State<MainGame> {
         showXO[3] == showXO[4] && showXO[3] == showXO[5] && showXO[3] != '') {
       _winText(showXO[3]);
       win = true;
-    } else if (boxCount == 9 && win) {
-      _drawText();
     }
 
     if (
@@ -175,8 +171,6 @@ class _MainGameState extends State<MainGame> {
         showXO[6] == showXO[7] && showXO[6] == showXO[8] && showXO[6] != '') {
       _winText(showXO[6]);
       win = true;
-    } else if (boxCount == 9 && win) {
-      _drawText();
     }
 
     if (
@@ -184,8 +178,6 @@ class _MainGameState extends State<MainGame> {
         showXO[0] == showXO[3] && showXO[0] == showXO[6] && showXO[0] != '') {
       _winText(showXO[0]);
       win = true;
-    } else if (boxCount == 9 && win) {
-      _drawText();
     }
 
     if (
@@ -193,8 +185,6 @@ class _MainGameState extends State<MainGame> {
         showXO[1] == showXO[4] && showXO[1] == showXO[7] && showXO[1] != '') {
       _winText(showXO[1]);
       win = true;
-    } else if (boxCount == 9 && win) {
-      _drawText();
     }
 
     if (
@@ -202,8 +192,6 @@ class _MainGameState extends State<MainGame> {
         showXO[2] == showXO[5] && showXO[2] == showXO[8] && showXO[2] != '') {
       _winText(showXO[2]);
       win = true;
-    } else if (boxCount == 9 && win) {
-      _drawText();
     }
 
     if (
@@ -211,8 +199,6 @@ class _MainGameState extends State<MainGame> {
         showXO[0] == showXO[4] && showXO[0] == showXO[8] && showXO[0] != '') {
       _winText(showXO[0]);
       win = true;
-    } else if (boxCount == 9 && win) {
-      _drawText();
     }
 
     if (
@@ -220,7 +206,7 @@ class _MainGameState extends State<MainGame> {
         showXO[2] == showXO[4] && showXO[2] == showXO[6] && showXO[2] != '') {
       _winText(showXO[2]);
       win = true;
-    } else if (boxCount == 9 && !win) {
+    } else if (boxCount == 9 && win == false) {
       _drawText();
     }
   }
@@ -244,7 +230,7 @@ class _MainGameState extends State<MainGame> {
                 height: 80,
                 width: 50,
                 child: Text(
-                  "Game has been drawn",
+                  "\n\nGame has been drawn",
                   textAlign: TextAlign.center,
                 ),
                 decoration: BoxDecoration(
@@ -268,7 +254,7 @@ class _MainGameState extends State<MainGame> {
                     child: ElevatedButton(
                         child: Text("Play Again"),
                         onPressed: () {
-                          _clear;
+                          _clear();
                           Navigator.of(context).pop();
                         }))
               ],
@@ -276,7 +262,7 @@ class _MainGameState extends State<MainGame> {
                 height: 80,
                 width: 50,
                 child: Text(
-                  "$winner Won!! \nThe other player owes you one!🥳🥳",
+                  "\n$winner Won!! \nThe other player owes you one!🥳🥳",
                   textAlign: TextAlign.center,
                 ),
                 decoration: BoxDecoration(
@@ -300,5 +286,6 @@ class _MainGameState extends State<MainGame> {
       showXO[i] = '';
     }
     boxCount = 0;
+    win = false;
   }
 }
